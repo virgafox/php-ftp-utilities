@@ -126,10 +126,10 @@
 			if (is_dir($sourcename)) {
 				foreach (new DirectoryIterator($sourcename) as $fileInfo) {
 					if (!$fileInfo->isDot()) {
-						if (is_dir($fileInfo))
-							delete_exec($fileInfo);
+						if (is_dir($fileInfo->getPathname()))
+							delete_exec($fileInfo->getPathname());
 						else
-							unlink($fileInfo);
+							unlink($fileInfo->getPathname());
 					}
 				}
 				rmdir($sourcename);
