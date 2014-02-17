@@ -173,6 +173,8 @@
 			}
 		?>
 		
+		<div class="row">
+		<div class="col-md-8">
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs">
 		  <li class="active"><a href="#unzip" data-toggle="tab">Unzip</a></li>
@@ -215,7 +217,7 @@
 								?>
 							</select>
 						</div>
-						<button type="submit" class="btn btn-warning">Unzip!</button>
+						<button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-folder-open"></span> Unzip!</button>
 					  </form>
 				  </div> <!-- col -->
 			</div><!-- row -->
@@ -243,7 +245,7 @@
 							<select name="zip_element" class="form-control">
 								<option value=""> --- </option>
 								<?php
-								foreach (new DirectoryIterator('.') as $fileInfo) {
+								foreach (new DirectoryIterator(__DIR__) as $fileInfo) {
 									if (!($fileInfo->isDot())&&($fileInfo->isDir())) {
 										echo "<option value=\"".$fileInfo."\">".$fileInfo."</option>", "\n";
 									}
@@ -251,7 +253,7 @@
 								?>
 							</select>
 						</div>
-						<button type="submit" class="btn btn-primary">Zip!</button>
+						<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-compressed"></span> Zip!</button>
 					  </form>
 				  </div> <!-- col -->
 			</div><!-- row -->
@@ -277,7 +279,7 @@
 							<select name="delete_element" class="form-control">
 								<option value=""> --- </option>
 								<?php
-								foreach (new DirectoryIterator('.') as $fileInfo) {
+								foreach (new DirectoryIterator(__DIR__) as $fileInfo) {
 									if (!($fileInfo->isDot())&&($fileInfo != basename(__FILE__))) {
 										echo "<option value=\"".$fileInfo."\">".$fileInfo."</option>", "\n";
 									}
@@ -285,13 +287,49 @@
 								?>
 							</select>
 						</div>
-						<button type="submit" class="btn btn-danger">Delete!</button>
+						<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete!</button>
 					  </form>
 				  </div> <!-- col -->
 			</div><!-- row -->
 		  </div>
 		</div>
-		
+        <hr class="visible-xs visible-sm">
+		</div><!-- col 8 -->
+		<div class="col-md-4">
+			<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">
+			  	<h3 class="panel-title">Actual Directory Content</h3>
+			  </div>
+			  <!-- Table -->
+			  <table class="table table-condensed table-hover">
+			    <thead>
+			    	<tr>
+			    		<th>Name</th>
+						<th>Type</th>
+			    	</tr>
+			    </thead>
+			    <tbody>
+			    <?php
+					foreach (new DirectoryIterator(__DIR__) as $fileInfo) {
+						if (!($fileInfo->isDot())&&($fileInfo != basename(__FILE__))) {
+							echo "<tr>";
+							if(is_dir($fileInfo)) {
+								echo "<td>".$fileInfo."</td>";
+								echo "<td>Folder</td>";
+							} else {
+								echo "<td>".$fileInfo."</td>";
+								echo "<td>File</td>";
+							}
+							echo "</td>";
+						}
+					}
+				?>
+			    </tbody>
+			  </table>
+			</div>
+		</div><!-- col4 -->
+		</div><!-- row big -->
 	  <hr>
       <footer>
         <p>Project on <a href="https://github.com/virgafox/php-ftp-utilities">GitHub</a>.</p>
