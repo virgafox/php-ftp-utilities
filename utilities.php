@@ -1,8 +1,10 @@
 <?php
 		if(isset($_POST['unzip_element'])) {
 			$sourcename = filter_var($_POST['unzip_element'], FILTER_SANITIZE_STRING);
-		
-			if (strlen($sourcename) > 1 && strlen($sourcename) < 40) {
+			if (!extension_loaded('zip')) {
+				$message['type'] = 'danger';
+				$message['text'] = "Unzip: ERROR. The Zip php extension is not loaded on this server.";
+			} else if (strlen($sourcename) > 1 && strlen($sourcename) < 40) {
 				flush();
 				usleep(500);
 				if (unzip_exec($sourcename) === TRUE) {
@@ -36,8 +38,10 @@
 		
 		if(isset($_POST['zip_element'])) {
 			$sourcename = filter_var($_POST['zip_element'], FILTER_SANITIZE_STRING);
-		
-			if (strlen($sourcename) > 1 && strlen($sourcename) < 40) {
+			if (!extension_loaded('zip')) {
+				$message['type'] = 'danger';
+				$message['text'] = "Unzip: ERROR. The Zip php extension is not loaded on this server.";
+			} else if (strlen($sourcename) > 1 && strlen($sourcename) < 40) {
 				flush();
 				usleep(500);
 				if (zip_exec($sourcename, "./".$sourcename.".zip") === TRUE) {
