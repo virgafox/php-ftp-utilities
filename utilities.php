@@ -142,8 +142,7 @@
 			}
 			return true;
 		}
-?> 
-
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -262,6 +261,8 @@
 				  </div> <!-- col -->
 			</div><!-- row -->
 		  </div>
+		  
+		  <!-- DELETER -->
 		  <div class="tab-pane fade" id="delete">
 		  <h2>Deleter</h2>
 		  	<hr>
@@ -296,6 +297,7 @@
 				  </div> <!-- col -->
 			</div><!-- row -->
 		  </div>
+		  
 		</div>
         <hr class="visible-xs visible-sm">
 		</div><!-- col 8 -->
@@ -318,11 +320,10 @@
 					foreach (new DirectoryIterator(__DIR__) as $fileInfo) {
 						if (!($fileInfo->isDot())&&($fileInfo != basename(__FILE__))) {
 							echo "<tr>";
+							echo "<td>".$fileInfo."</td>";
 							if(is_dir($fileInfo)) {
-								echo "<td>".$fileInfo."</td>";
 								echo "<td>Folder</td>";
 							} else {
-								echo "<td>".$fileInfo."</td>";
 								echo "<td>File</td>";
 							}
 							echo "</td>";
