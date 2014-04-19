@@ -40,7 +40,7 @@
 			$sourcename = filter_var($_POST['zip_element'], FILTER_SANITIZE_STRING);
 			if (!extension_loaded('zip')) {
 				$message['type'] = 'danger';
-				$message['text'] = "Unzip: ERROR. The Zip php extension is not loaded on this server.";
+				$message['text'] = "Zip: ERROR. The Zip php extension is not loaded on this server.";
 			} else if (strlen($sourcename) > 1 && strlen($sourcename) < 40) {
 				flush();
 				usleep(500);
