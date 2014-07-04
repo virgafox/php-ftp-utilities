@@ -115,10 +115,10 @@
 				usleep(500);
 				if (delete_exec($sourcename) === TRUE) {
 					$message['type'] = 'success';
-					$message['text'] = "Delete: Element <strong>".$sourcename."</strong> deleted succesfully.";
+					$message['text'] = "Delete: Element <strong>".$sourcename."</strong> deleted successfully.";
 				} else {
 					$message['type'] = 'danger';
-					$message['text'] = "DELETE: An Error occurred during deletion.";
+					$message['text'] = "Delete: An Error occurred during deletion.";
 				}
 			} else {
 				$message['type'] = 'danger';
