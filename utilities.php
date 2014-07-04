@@ -199,7 +199,7 @@
 						    <h3 class="panel-title">Unzip Instructions</h3>
 						  </div>
 						  <div class="panel-body">
-						    Put this script file in the same folder of the archive that you want to extract. Visit this page and select the zip archive, then press "Unzip!". The archive will be extracted in a folder with the same name.<br> <strong>Warning</strong>, if that folder already exists, it will be overwritten.
+						    Put this script file in the same folder of the archive that you want to extract. Visit this page and select the zip archive, then press "Unzip!". The archive will be extracted in a folder with the same name.<br> <strong>Warning</strong>: if that folder already exists, it will be overwritten.
 						  </div>
 						</div>
 				  </div><!-- col -->
@@ -237,7 +237,7 @@
 						    <h3 class="panel-title">Zip Instructions</h3>
 						  </div>
 						  <div class="panel-body">
-						    Put this script file in the same directory of the folder that you want to compress. Visit this page and select the folder, then press "Zip!". The folder will be compressed in an archive with the same name.<br><strong>Warning</strong>, if the archive with this name already exists, it will be overwritten.
+						    Put this script file in the same directory of the folder that you want to compress. Visit this page and select the folder, then press "Zip!". The folder will be compressed in an archive with the same name.<br><strong>Warning</strong>: if the archive with this name already exists, it will be overwritten.
 						  </div>
 						</div>
 				  </div><!-- col -->
@@ -273,7 +273,7 @@
 						    <h3 class="panel-title">Delete Instructions</h3>
 						  </div>
 						  <div class="panel-body">
-						    Put this script file in the same folder of the element (file or folder) that you want to delete. Visit this page and select the element, then press "Delete!".<br> <strong>Warning</strong>, the element will be deleted immediately.
+						    Put this script file in the same folder of the element (file or folder) that you want to delete. Visit this page and select the element, then press "Delete!".<br> <strong>Warning</strong>: the element will be deleted immediately.
 						  </div>
 						</div>
 				  </div><!-- col -->
@@ -335,6 +335,12 @@
 			</div>
 		</div><!-- col4 -->
 		</div><!-- row big -->
+
+        <div class="alert alert-info alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>Remember</strong> to remove this utilities file from your server immediately after you have done the needed operations. It represent a potential security issue.
+        </div>
+
 	  <hr>
       <footer>
         <p>Project on <a href="https://github.com/virgafox/php-ftp-utilities">GitHub</a>.</p>
